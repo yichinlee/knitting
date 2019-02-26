@@ -2,24 +2,12 @@ import string
 import numpy as np
 
 file = open("tileKnitting_tri.k", "w")	
-
 file.write(";!knitout-2\n")
 file.write(";;Carriers: 3 6\n")
 file.write("inhook 6 3\n")
 file.write("x-stitch-number 96\n")
-
-# print(";!knitout-2")
-# print(";;Carriers: 3 6")
-# print("inhook 6 3")
-# print("x-stitch-number 96")
-
 CarriersA = "6 3"
 CarriersB = "3 6"
-
-# #kintsize = overall size
-# #unitSize = tile size
-# knitSize = 20
-# unitSize = 20
 
 #unit pattern size
 unitWidth = 10
@@ -126,7 +114,6 @@ def knit(totalWidth):
 	for row in finalPtr:
 		knitRow(row, rowCount)
 		rowCount += 1
-
 
 knit(totalWidth)
 file.write("outhook 6 3")
