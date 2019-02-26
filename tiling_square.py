@@ -1,8 +1,7 @@
 import string
 import numpy as np
 
-file = open("tileKnitting_square.k", "w")	
-
+file = open("tileKnitting_square.k", "w")
 file.write(";!knitout-2\r\n")
 file.write(";;Carriers: 3 6\r\n")
 file.write("inhook 6 3\r\n")
@@ -68,8 +67,6 @@ def knitRow(frontOrBack, rowConut):
 	unitSize = 20
 	f = "f"
 	b = "b"
-	
-
 	# do the transfer
 	for i in range (0,len(onBed)):
 		if frontOrBack[i] == "f" and onBed[i] == "b":
@@ -79,7 +76,6 @@ def knitRow(frontOrBack, rowConut):
 		elif frontOrBack[i] == "b" and onBed[i] == "f":
 			file.write("xfer f" + str(i*2) + " b" + str(i*2) + "\r\n")
 			onBed[i] = "b"
-	
 	#do the knitting		
 	if rowConut %2 ==0:
 		for i in range(len(onBed)-1,-1,-1):
@@ -87,7 +83,6 @@ def knitRow(frontOrBack, rowConut):
 				file.write("knit - " + onBed[i] + str(i*2) + " " + CarriersA + "\r\n")
 			else:
 				file.write("knit - " + onBed[i] + str(i*2) + " " + CarriersB + "\r\n")
-
 	else:
 		for i in range(0,len(onBed)):
 			if onBed[i] == b:
@@ -106,8 +101,6 @@ def knit(totalWidth):
 	for row in finalPtr:
 		knitRow(row, rowCount)
 		rowCount += 1
-
-
 knit(totalWidth)
 file.write("outhook 6 3")
 
